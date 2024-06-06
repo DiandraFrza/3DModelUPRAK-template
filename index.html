@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3D Portfolio | Diandra Firza</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <body class="body">
+      <div class="nav-white casing">
+        <a href="#about">
+          <div class="nav-text">About</div>
+        </a>
+        <a href="#work">
+          <div class="nav-text">Work</div>
+        </a>
+        <a href="#contact">
+          <div class="nav-text">Contact</div>
+        </a>
+      </div>
+      <main>
+        <div class="cursor" id="container3D">test</div>
+      </main>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+
+    <!-- Include EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("YOUR_USER_ID"); // Ganti YOUR_USER_ID dengan User ID dari EmailJS
+      })();
+    </script>
+
+    <script type="text/javascript">
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this).then(
+            function () {
+              document.getElementById("form-message").innerText =
+                "Pesan Anda telah berhasil dikirim!";
+            },
+            function (error) {
+              document.getElementById("form-message").innerText =
+                "Gagal mengirim pesan. Silakan coba lagi.";
+            }
+          );
+        });
+    </script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+  </body>
+</html>
